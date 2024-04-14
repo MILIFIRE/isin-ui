@@ -1,9 +1,16 @@
-import { AdvancedDynamicTexture, Container, Control } from "@babylonjs/gui";
+import {
+  AdvancedDynamicTexture,
+  Container,
+  Control,
+  Grid,
+} from "@babylonjs/gui";
 import { VNode, getCurrentInstance, ComponentInternalInstance } from "vue";
-type nodeType = Container | AdvancedDynamicTexture | Control;
+import { ControlProps } from "./components/controls/controlsProps";
+type nodeType = Container | AdvancedDynamicTexture | Control | Grid;
 // type parentType = Container | AdvancedDynamicTexture;
-
-const nodes = new Map<number, { control: nodeType; parentId: number }>();
+type isinNode = { control: nodeType; parentId: number };
+const nodes = new Map<number, isinNode>();
+const nodeIndexodNode = new Map<nodeType, number>();
 export const addNode = (node: nodeType) => {
   // 父节点
   let parentInstance;
@@ -35,27 +42,55 @@ export const addNode = (node: nodeType) => {
       console.warn("AdvancedDynamicTexture is not be sub-components");
     } else {
       const { control } = parent;
-      const controlAlis = control as Container;
-      if (controlAlis && controlAlis.addControl) {
-        controlAlis.addControl(node as Container);
-        if (
-          controlAlis._children instanceof Array &&
-          controlAlis._children.length > 1
-        ) {
-          // 放置到指定位置
-          const lastElement = controlAlis._children.pop() as Control;
-          controlAlis._children.splice(subIndex, 0, lastElement);
+      if (control instanceof Grid && instance) {
+        const alisType: ControlProps = instance.props;
+        const rowIndex = alisType.rowIndex
+          ? alisType.rowIndex
+          : Number.MAX_VALUE;
+        const columnIndex = alisType.columnIndex
+          ? alisType.columnIndex
+          : Number.MAX_SAFE_INTEGER;
+
+        control.addControl(node, rowIndex, columnIndex);
+      } else {
+        const controlAlis = control as Container;
+        if (controlAlis && controlAlis.addControl) {
+          controlAlis.addControl(node as Container);
+          if (
+            controlAlis._children instanceof Array &&
+            controlAlis._children.length > 1
+          ) {
+            // 放置到指定位置
+            const lastElement = controlAlis._children.pop() as Control;
+            controlAlis._children.splice(subIndex, 0, lastElement);
+          }
         }
       }
     }
   }
   nodes.set(id, { parentId, control: node });
+  nodeIndexodNode.set(node, id);
   return { id, parentId };
+};
+export const getParentNode = (node: nodeType): isinNode | undefined => {
+  const nodeId = nodeIndexodNode.get(node);
+  if (nodeId) {
+    const node = nodes.get(nodeId);
+    if (node) {
+      return nodes.get(node.parentId);
+    }
+  }
+
+  return undefined;
 };
 export const removeNode = () => {
   const instance = getCurrentInstance();
   if (instance) {
     const id = instance.uid;
+    const node = nodes.get(id);
+    if (node) {
+      nodeIndexodNode.delete(node.control);
+    }
     nodes.delete(id);
   }
 };

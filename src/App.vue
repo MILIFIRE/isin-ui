@@ -8,12 +8,15 @@ import TextBlock from "./components/controls/textBlock/TextBlock.vue";
 import Image from "./components/controls/image/Image.vue";
 import ScrollViewer from "./components/controls/scrollViewer/ScrollViewer.vue";
 import { onMounted, ref } from "vue";
+import Grid from "./components/controls/grid/Grid.vue";
 const ca = ref(null);
 const textureRef = ref();
 const show = ref(true);
+const num = ref(0);
 setInterval(() => {
   console.log("show.value:", show.value);
   show.value = !show.value;
+  num.value += 1;
 }, 3000);
 onMounted(() => {
   if (ca.value) {
@@ -86,8 +89,24 @@ const log = () => {
   <div id="app">
     <canvas ref="ca" width="720" height="720"></canvas>
     <AdvancedDynamicTexture v-if="textureRef" :texture="textureRef">
-      <ScrollViewer :thickness="7" color="green" :width="0.4" :height="0.4">
-        <StackPanel :isHighlighted="true">
+      <ScrollViewer :thickness="7" color="green" :width="1" :height="1">
+        <Grid
+          width="500px"
+          background="black"
+          :isHighlighted="true"
+          :row="[
+            { height: 0.5 },
+            { height: 0.5 },
+            { height: 0.5 },
+            { height: 0.5 },
+          ]"
+          :column="[
+            { width: 0.5 },
+            { width: 0.5 },
+            { width: 0.5 },
+            { width: 0.5 },
+          ]"
+        >
           <Rectangle
             :thickness="4"
             color="Orange"
@@ -95,6 +114,8 @@ const log = () => {
             background="red"
             width="40px"
             height="40px"
+            :rowIndex="num"
+            :columnIndex="num"
           ></Rectangle>
           <Rectangle
             :thickness="4"
@@ -103,31 +124,67 @@ const log = () => {
             background="red"
             width="40px"
             height="40px"
+            :rowIndex="1"
+            :columnIndex="1"
           ></Rectangle>
-          <Rectangle
-            :thickness="4"
-            color="Orange"
-            :cornerRadius="0"
-            background="red"
-            width="40px"
-            height="40px"
-            :onPointerOutObservable="log"
-            :scaleX="0.5"
-            v-if="show"
-           
+          <StackPanel :isHighlighted="true" :rowIndex="2" :columnIndex="2">
+            <Rectangle
+              :thickness="4"
+              color="Orange"
+              :cornerRadius="20"
+              background="red"
+              width="40px"
+              height="40px"
+            ></Rectangle>
+            <Rectangle
+              :thickness="4"
+              color="Orange"
+              :cornerRadius="20"
+              background="red"
+              width="40px"
+              height="40px"
+            ></Rectangle>
+            <Rectangle
+              :thickness="4"
+              :cornerRadius="0"
+              background="red"
+              width="40px"
+              height="40px"
+              :onPointerOutObservable="log"
+              :scaleX="0.5"
+            >
+            </Rectangle>
+            <Image
+              height="300px"
+              source="https://meta.gotin.online/Table/Test/AIA/arts/1919.png"
+            ></Image>
+            <TextBlock
+              height="40px"
+              color="red"
+              fontSize="100"
+              text="aaaaaa"
+            ></TextBlock>
+          </StackPanel>
+
+          <Grid
+            width="130px"
+            background="black"
+            :isHighlighted="true"
+            :row="[
+              { height: 0.5 },
+              { height: 0.5 },
+              { height: 0.5 },
+              { height: 0.5 },
+            ]"
+            :column="[
+              { width: 0.5 },
+              { width: 0.5 },
+              { width: 0.5 },
+              { width: 0.5 },
+            ]"
           >
-          </Rectangle>
-          <Image
-            height="300px"
-            source="https://meta.gotin.online/Table/Test/AIA/arts/1919.png"
-          ></Image>
-          <TextBlock
-            height="40px"
-            color="red"
-            fontSize="100"
-            text="aaaaaa"
-          ></TextBlock>
-        </StackPanel>
+          </Grid>
+        </Grid>
       </ScrollViewer>
     </AdvancedDynamicTexture>
   </div>
@@ -147,4 +204,3 @@ const log = () => {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
 </style>
-./components/controls/advancedDynamicTexture/AdvancedDynamicTexture.vue./components/controls/rectangle/Rectangle.vue./components/controls/stackPanel/StackPanel.vue./components/controls/textBlock/TextBlock.vue

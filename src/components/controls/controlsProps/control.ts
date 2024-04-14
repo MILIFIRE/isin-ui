@@ -20,7 +20,7 @@ export interface ControlProps {
   fontSizeInPixels?: number;
   fontStyle?: string;
   fontWeight?: string;
-  gradient?:BaseGradient;
+  gradient?: BaseGradient;
   height?: string | number;
   heightInPixels?: number;
   highlightColor?: string;
@@ -51,7 +51,7 @@ export interface ControlProps {
   shadowColor?: string;
   shadowOffsetX?: number;
   shadowOffsetY?: number;
-  style?:Style;
+  style?: Style;
   top?: string | number;
   transformCenterX?: number;
   transformCenterY?: number;
@@ -70,6 +70,9 @@ export interface ControlProps {
   onPointerUpObservable?: (value: Vector2WithInfo) => void;
   onWheelObservable?: (value: Vector2) => void;
   onIsVisibleChangedObservable?: (value: boolean) => void;
+  // 非原生属性
+  rowIndex?: number;
+  columnIndex?: number;
 }
 export const controlDefaultProps = {
   clipChildren: true,
