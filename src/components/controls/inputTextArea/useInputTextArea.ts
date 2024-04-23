@@ -1,5 +1,5 @@
 import { InputTextArea } from "@babylonjs/gui";
-import { ControlProps } from "../controlsProps/control";
+import { ControlProps } from "../controls_props/control";
 import { addNode, removeNode } from "../../../core";
 const useInputTextArea = <T extends ControlProps>(props: T) => {
   const inputTextArea = new InputTextArea(props.name);

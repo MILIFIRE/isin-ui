@@ -1,4 +1,4 @@
-import { InputTextProps, InputTextDefaultProps } from ".";
+import { InputTextProps, InputTextDefaultProps } from "./inputText";
 
 export interface InputTextAreaProps extends InputTextProps {
     outlineWidth?: number;

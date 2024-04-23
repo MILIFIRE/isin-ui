@@ -1,9 +1,15 @@
 <script setup lang="ts">
 import { onUnmounted, watch } from "vue";
-import { SliderDefaultProps, SliderProps } from "../controlsProps";
+import { SliderDefaultProps, BaseSliderProps } from "../controls_props";
 import useSlider from "./useSlider";
 import { compareAndset } from "../../../util";
-
+export interface SliderProps extends /* @vue-ignore */ BaseSliderProps {
+  displayValueBar?: boolean;
+  borderColor?: string;
+  background?: string;
+  thumbColor?: string;
+  isThumbCircle?: boolean;
+}
 const props = withDefaults(
   defineProps<SliderProps>(),
   SliderDefaultProps
@@ -26,4 +32,4 @@ onUnmounted(() => {
 </template>
 
 <style lang="less"></style>
-./useSlider
+./useSlider../controls_props

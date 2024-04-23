@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import * as BABYLON from "@babylonjs/core";
 import * as GUI from "@babylonjs/gui";
-import AdvancedDynamicTexture from "./components/controls/advancedDynamicTexture/AdvancedDynamicTexture.vue";
-import Rectangle from "./components/controls/rectangle/Rectangle.vue";
-import StackPanel from "./components/controls/stackPanel/StackPanel.vue";
-import TextBlock from "./components/controls/textBlock/TextBlock.vue";
-import Image from "./components/controls/image/Image.vue";
-import ScrollViewer from "./components/controls/scrollViewer/ScrollViewer.vue";
+import AdvancedDynamicTexture from "./src/components/controls/advancedDynamicTexture/AdvancedDynamicTexture.vue";
+import Rectangle from "./src/components/controls/rectangle/Rectangle.vue";
+import StackPanel from "./src/components/controls/stackPanel/StackPanel.vue";
+import TextBlock from "./src/components/controls/textBlock/TextBlock.vue";
+import Image from "./src/components/controls/image/Image.vue";
+import ScrollViewer from "./src/components/controls/scrollViewer/ScrollViewer.vue";
 import { onMounted, ref } from "vue";
-import Grid from "./components/controls/grid/Grid.vue";
+import Grid from "./src/components/controls/grid/Grid.vue";
 const ca = ref(null);
 const textureRef = ref();
 const show = ref(true);

@@ -1,5 +1,4 @@
-import { TextWrapping } from "@babylonjs/gui";
-import { ControlProps, RectangleDefaultProps, controlDefaultProps } from ".";
+import { ControlProps, controlDefaultProps } from "./control";
 
 export interface InputTextProps extends ControlProps {
     maxWidth?: string | number;

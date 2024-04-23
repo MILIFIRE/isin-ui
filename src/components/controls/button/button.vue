@@ -1,19 +1,25 @@
 <script setup lang="ts">
 import { onUnmounted, watch } from "vue";
-import { ContainersDefaultProps, RectangleProps } from "../controlsProps";
+import { ContainersDefaultProps } from "../controls_props";
+import type { RectangleProps } from "../controls_props";
+
 import useButton from "./button";
 import { compareAndset } from "../../../util";
-// todo
-interface ButtonProps extends RectangleProps {
+export interface ButtonProps extends  /* @vue-ignore */ RectangleProps {
   thickness?: number;
   cornerRadius?: number;
+  pointerEnterAnimation?: () => void;
+  pointerOutAnimation?: () => void;
+  pointerDownAnimation?: () => void;
+  pointerUpAnimation?: () => void;
+  delegatePickingToChildren?: boolean;
 }
 const props = withDefaults(defineProps<ButtonProps>(), ContainersDefaultProps);
 const { node } = useButton<ButtonProps>(props);
 watch(
   props,
   (newValue, oldVale) => {
-    compareAndset<typeof node, RectangleProps>(node, newValue, oldVale);
+    compareAndset<typeof node, ButtonProps>(node, newValue, oldVale);
   },
   { immediate: true }
 );

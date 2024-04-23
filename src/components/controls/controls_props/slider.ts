@@ -1,4 +1,4 @@
-import { BaseSliderProps, BaseSliderDefaultProps } from ".";
+import { BaseSliderProps, BaseSliderDefaultProps } from "./baseSlider";
 
 export interface SliderProps extends BaseSliderProps {
   displayValueBar?: boolean;

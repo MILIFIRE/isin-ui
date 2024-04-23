@@ -1,4 +1,4 @@
-import { ContainersDefaultProps, ContainersProps } from ".";
+import { ContainersDefaultProps, ContainersProps } from "./containers";
 export interface RectangleProps extends ContainersProps {
     thickness?: number;
     cornerRadius?: number;

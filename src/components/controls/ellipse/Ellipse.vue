@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { onUnmounted, watch } from "vue";
-import {  EllipseDefaultProps,EllipseProps } from "../controlsProps";
+import {  EllipseDefaultProps,ContainersProps } from "../controls_props";
 import useEllipse from "./useEllipse";
 import { compareAndset } from "../../../util";
 
-
+export interface EllipseProps extends /* @vue-ignore */ ContainersProps {
+    thickness?: number;
+  }
 const props = withDefaults(
   defineProps<EllipseProps>(),
     EllipseDefaultProps
@@ -31,5 +33,3 @@ onUnmounted(() => {
 </template>
 
 <style lang="less"></style>
-../containers./useEllipse
-../props/containers./useEllipse

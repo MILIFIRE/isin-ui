@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { onUnmounted, watch } from "vue";
-import { StackPanelProps, StackPanelDefaultProps } from "../controlsProps";
+import { ContainersProps, StackPanelDefaultProps } from "../controls_props";
 import useStackPanel from "./stackPanel";
 import { compareAndset } from "../../../util";
-
+export interface StackPanelProps extends /* @vue-ignore */ ContainersProps {
+  isVertical?: boolean;
+}
 const props = withDefaults(
   defineProps<StackPanelProps>(),
   StackPanelDefaultProps
@@ -31,3 +33,4 @@ onUnmounted(() => {
 
 <style lang="less"></style>
 ../props/containers
+../controls_props

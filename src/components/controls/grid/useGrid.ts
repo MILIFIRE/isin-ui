@@ -1,7 +1,6 @@
-import { Control, Grid } from "@babylonjs/gui";
-import { ControlProps } from "../controlsProps/control";
+import { Grid } from "@babylonjs/gui";
+import { ControlProps } from "../controls_props/control";
 import { addNode, removeNode } from "../../../core";
-import { Observable } from "@babylonjs/core";
 const useGrid = <T extends ControlProps>(props: T) => {
   const grid = new Grid(props.name);
   addNode(grid);

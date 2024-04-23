@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import { onUnmounted, watch } from "vue";
-import { RectangleDefaultProps, RectangleProps } from "../controlsProps";
+import { RectangleDefaultProps, ContainersProps } from "../controls_props";
 import useRectangle from "./useRectangle";
 import { compareAndset } from "../../../util";
 
+export interface RectangleProps extends /* @vue-ignore */ ContainersProps {
+    thickness?: number;
+    cornerRadius?: number;
+  }
 const props = withDefaults(
   defineProps<RectangleProps>(),
   RectangleDefaultProps
@@ -26,3 +30,4 @@ onUnmounted(() => {
 </template>
 
 <style lang="less"></style>
+../controls_props

@@ -1,8 +1,16 @@
 <script setup lang="ts">
 import { onUnmounted, watch } from "vue";
-import { RadioButtonDefaultProps, RadioButtonProps } from "../controlsProps";
+import { RadioButtonDefaultProps, ControlProps } from "../controls_props";
 import useRadioButton from "./useRadioButton";
 import { compareAndset } from "../../../util";
+
+export interface RadioButtonProps extends /* @vue-ignore */ ControlProps {
+  thickness?: number;
+    group?: string;
+    checkSizeRatio?: number;
+    background?: string;
+    isChecked?: boolean;
+}
 
 const props = withDefaults(
   defineProps<RadioButtonProps>(),
@@ -25,4 +33,4 @@ onUnmounted(() => {
   <slot></slot>
 </template>
 
-<style lang="less"></style>
+<style lang="less"></style>../controls_props

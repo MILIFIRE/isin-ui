@@ -1,5 +1,4 @@
-import { AdvancedDynamicTexture, StackPanel } from "@babylonjs/gui";
-import { ControlProps } from "../controlsProps/control";
+import { AdvancedDynamicTexture } from "@babylonjs/gui";
 import { addNode } from "../../../core";
 
 const useAdvancedDynamicTexture = <T extends AdvancedDynamicTexture>(advancedDynamicTexture: T) => {

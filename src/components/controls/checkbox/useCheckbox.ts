@@ -1,5 +1,5 @@
 import { Checkbox } from "@babylonjs/gui";
-import { ControlProps } from "../controlsProps/control";
+import { ControlProps } from "../controls_props/control";
 import { addNode, removeNode } from "../../../core";
 const useCheckbox = <T extends ControlProps>(props: T) => {
   const checkbox = new Checkbox(props.name);

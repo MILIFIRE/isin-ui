@@ -1,7 +1,6 @@
 import { ScrollViewer } from "@babylonjs/gui";
-import { ControlProps } from "../controlsProps/control";
 import { addNode, removeNode } from "../../../core";
-import { ScrollViewerProps } from "../controlsProps";
+import { ScrollViewerProps } from "../controls_props";
 const useScrollViewer = <T extends ScrollViewerProps>(props: T) => {
   const rectangle = new ScrollViewer(props.name,props.isImageBased);
   addNode(rectangle);

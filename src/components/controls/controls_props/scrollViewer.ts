@@ -1,5 +1,5 @@
 import { Image } from "@babylonjs/gui";
-import { RectangleProps, RectangleDefaultProps } from ".";
+import { RectangleProps, RectangleDefaultProps } from "./rectangle";
 
 export interface ScrollViewerProps extends RectangleProps {
   freezeControls?: boolean;

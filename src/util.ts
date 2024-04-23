@@ -2,17 +2,17 @@ import { Observable } from "@babylonjs/core";
 import { Control, Grid } from "@babylonjs/gui";
 import { KeyEnum } from "./keyEnum";
 import { getParentNode } from "./core";
-import { VNode, getCurrentInstance, ComponentInternalInstance } from "vue";
-
 export const compareAndset = <K extends Control, T extends Object>(
   node: K,
   newValue: T,
-  oldVale: T | undefined
+// @ts-ignore
+  oldValue: T | undefined
 ) => {
   Object.keys(newValue).forEach((key) => {
     const nodeAlis = node as unknown as T;
     if (newValue[key as keyof typeof newValue] !== undefined) {
       switch (true) {
+        // @ts-ignore
         case key.includes(KeyEnum.Observable): {
           (
             node[key as keyof typeof node] as unknown as Observable<Control>
@@ -20,6 +20,8 @@ export const compareAndset = <K extends Control, T extends Object>(
             newValue[key as keyof typeof newValue] as (value: Control) => void
           );
         }
+        // @ts-ignore
+
         case key.includes(KeyEnum.ColumnIndex) ||
           key.includes(KeyEnum.RowIndex): {
           updateIndex(
@@ -39,14 +41,16 @@ export const compareAndset = <K extends Control, T extends Object>(
   });
 };
 
-const updateIndex = (node: Control, columnIndex: number, rowIndex: number) => { 
+const updateIndex = (node: Control, columnIndex: number, rowIndex: number) => {
   const parent = getParentNode(node);
   if (parent) {
-
     const { control } = parent;
     if (control instanceof Grid) {
-      control.removeControl(node);
-      control.addControl(node, rowIndex, columnIndex);
+      const innerNode = control.getChildrenAt(rowIndex,columnIndex)
+      if(innerNode && !innerNode.includes(node)){
+        control.removeControl(node);
+        control.addControl(node, rowIndex, columnIndex);
+      }
     }
   }
 };

@@ -37,4 +37,4 @@ onUnmounted(() => {
 </template>
 
 <style lang="less"></style>
-../containers./useAdvancedDynamicTexture
+

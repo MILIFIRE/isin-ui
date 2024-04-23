@@ -1,10 +1,33 @@
 <script setup lang="ts">
 import { onUnmounted, watch } from "vue";
-import {  ScrollViewerDefaultProps,ScrollViewerProps } from "../controlsProps";
+import {  ScrollViewerDefaultProps,RectangleProps } from "../controls_props";
 import useRectangle from "./useScrollViewer";
 import { compareAndset } from "../../../util";
+import { Image } from "@babylonjs/gui";
 
-
+export interface ScrollViewerProps extends /* @vue-ignore */ RectangleProps {
+  freezeControls?: boolean;
+  bucketHeight?: number;
+  forceHorizontalBar?: boolean;
+  forceVerticalBar?: boolean;
+  wheelPrecision?: number;
+  scrollBackground?: string;
+  barColor?: string;
+  thumbImage?: Image;
+  horizontalThumbImage?: Image;
+  verticalThumbImage?: Image;
+  barSize?: number;
+  thumbLength?: number;
+  thumbHeight?: number;
+  barImageHeight?: number;
+  horizontalBarImageHeight?: number;
+  verticalBarImageHeight?: number;
+  barBackground?: string;
+  barImage?: Image;
+  horizontalBarImage?: Image;
+  verticalBarImage?: Image;
+  isImageBased?:boolean;
+}
 const props = withDefaults(
   defineProps<ScrollViewerProps>(),
     ScrollViewerDefaultProps
@@ -31,3 +54,4 @@ onUnmounted(() => {
 </template>
 
 <style lang="less"></style>
+../controls_props

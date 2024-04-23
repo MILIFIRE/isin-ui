@@ -4,8 +4,8 @@ import {
   Control,
   Grid,
 } from "@babylonjs/gui";
-import { VNode, getCurrentInstance, ComponentInternalInstance } from "vue";
-import { ControlProps } from "./components/controls/controlsProps";
+import { VNode, getCurrentInstance } from "vue";
+import { ControlProps } from "./components/controls/controls_props";
 type nodeType = Container | AdvancedDynamicTexture | Control | Grid;
 // type parentType = Container | AdvancedDynamicTexture;
 type isinNode = { control: nodeType; parentId: number };

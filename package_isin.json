@@ -1,0 +1,19 @@
+{
+  "name": "isin-vue",
+  "version": "1.0.0",
+  "description": "isin ui with webgl",
+  "module": "isin.es.js",
+  "types": "components/index.d.ts",
+  "author": "shuaisong",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "dependencies": {
+    "@babylonjs/materials": "^7.0.0",
+    "@babylonjs/serializers": "^7.0.0",
+    "@babylonjs/core": "^7.0.0",
+    "@babylonjs/gui": "^7.0.0",
+    "vue": "^3.4.21"
+  }
+}

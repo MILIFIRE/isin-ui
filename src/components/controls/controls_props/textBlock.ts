@@ -1,5 +1,6 @@
 import { TextWrapping } from "@babylonjs/gui";
-import { ControlProps, RectangleDefaultProps } from ".";
+import { ControlProps } from "./control";
+import {  RectangleDefaultProps } from "./rectangle";
 
 export interface TextBlockProps extends ControlProps {
   resizeToFit?: boolean;

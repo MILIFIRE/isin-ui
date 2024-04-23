@@ -1,8 +1,13 @@
 <script setup lang="ts">
 import { onUnmounted, watch } from "vue";
-import { GridDefaultProps, GridProps } from "../controlsProps";
+import { GridDefaultProps, ContainersProps } from "../controls_props";
 import useGrid from "./useGrid";
 import { compareAndset } from "../../../util";
+
+export interface GridProps extends /* @vue-ignore */  ContainersProps {
+    row: Array<{height:number,isPixel?:boolean}>;
+    column:  Array<{width:number,isPixel?:boolean}>;
+  }
 
 const props = withDefaults(defineProps<GridProps>(), GridDefaultProps);
 let prevRow: GridProps["row"] | undefined = undefined;
@@ -75,3 +80,4 @@ onUnmounted(() => {
 </template>
 
 <style lang="less"></style>
+../controls_props

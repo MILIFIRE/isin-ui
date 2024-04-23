@@ -1,10 +1,10 @@
-import { TextWrapping } from "@babylonjs/gui";
-import { ControlProps, RectangleDefaultProps } from ".";
+import { ControlProps } from "./control";
+import { RectangleDefaultProps } from "./rectangle";
 import { Nullable } from "@babylonjs/core/types";
 import { IImage } from "@babylonjs/core";
 
 export interface ImageProps extends ControlProps {
-  referrerPolicy?:  Nullable<ReferrerPolicy>;
+  referrerPolicy?: Nullable<ReferrerPolicy>;
   detectPointerOnOpaqueOnly?: boolean;
   sliceLeft?: number;
   sliceRight?: number;
@@ -23,11 +23,10 @@ export interface ImageProps extends ControlProps {
   cellWidth?: number;
   cellHeight?: number;
   cellId?: number;
-
 }
 export const ImageDefaultProps = {
-    detectPointerOnOpaqueOnly: false,
-    populateNinePatchSlicesFromImage:false,
-    autoScale:false,
+  detectPointerOnOpaqueOnly: false,
+  populateNinePatchSlicesFromImage: false,
+  autoScale: false,
   ...RectangleDefaultProps,
 };

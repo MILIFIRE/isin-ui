@@ -1,4 +1,4 @@
-import { ControlProps, controlDefaultProps } from ".";
+import { ControlProps, controlDefaultProps } from "./control";
 
 export interface BaseSliderProps extends ControlProps {
     displayThumb?: boolean;

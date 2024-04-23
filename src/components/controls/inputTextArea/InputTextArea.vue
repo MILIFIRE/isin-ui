@@ -1,8 +1,15 @@
 <script setup lang="ts">
 import { onUnmounted, watch } from "vue";
-import { InputTextAreaDefaultProps, InputTextAreaProps } from "../controlsProps";
+import { InputTextAreaDefaultProps, InputTextProps } from "../controls_props";
 import useInputTextArea from "./useInputTextArea";
 import { compareAndset } from "../../../util";
+export interface InputTextAreaProps extends /* @vue-ignore */ InputTextProps {
+    outlineWidth?: number;
+    outlineColor?: string;
+    autoStretchHeight?: boolean;
+    height?: string | number;
+    maxHeight?: string | number;
+}
 
 const props = withDefaults(
   defineProps<InputTextAreaProps>(),
@@ -25,4 +32,4 @@ onUnmounted(() => {
   <slot></slot>
 </template>
 
-<style lang="less"></style>
+<style lang="less"></style>../controls_props
