@@ -1,8 +1,8 @@
 {
-  "name": "isin-vue",
+  "name": "isin-ui",
   "version": "1.0.0",
   "description": "isin ui with webgl",
-  "module": "isin.es.js",
+  "module": "index.js",
   "types": "components/index.d.ts",
   "author": "shuaisong",
   "license": "MIT",
@@ -13,7 +13,6 @@
     "@babylonjs/materials": "^7.0.0",
     "@babylonjs/serializers": "^7.0.0",
     "@babylonjs/core": "^7.0.0",
-    "@babylonjs/gui": "^7.0.0",
-    "vue": "^3.4.21"
+    "@babylonjs/gui": "^7.0.0"
   }
 }
