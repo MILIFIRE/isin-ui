@@ -5,6 +5,7 @@ import fs from 'fs-extra';
 try {
   // 使用 fs-extra 的 copySync 方法来同步地复制文件
   fs.copySync('package_isin.json', 'dist/package.json');
+  fs.copySync('README.md', 'dist/README.md');
   console.log('File copied successfully');
 } catch (err) {
   console.error('Error copying file:', err);
