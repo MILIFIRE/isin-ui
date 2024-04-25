@@ -9,6 +9,10 @@ export interface RadioButtonProps extends ControlProps {
 }
 
 export const RadioButtonDefaultProps = {
-  isChecked: false,
+  thickness: Number,
+  group:String,
+  checkSizeRatio: Number,
+  background:String,
+  isChecked: {type:Boolean,default:false},
   ...controlDefaultProps,
 };

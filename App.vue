@@ -89,7 +89,7 @@ const log = () => {
   <div id="app">
     <canvas ref="ca" width="720" height="720"></canvas>
     <AdvancedDynamicTexture v-if="textureRef" :texture="textureRef">
-      <ScrollViewer :thickness="7" color="green" :width="1" :height="1">
+      <!-- <ScrollViewer :thickness="7" color="green" :width="1" :height="1">
         <Grid
           width="500px"
           background="black"
@@ -185,7 +185,7 @@ const log = () => {
           >
           </Grid>
         </Grid>
-      </ScrollViewer>
+      </ScrollViewer> -->
     </AdvancedDynamicTexture>
   </div>
 </template>

@@ -5,6 +5,7 @@ export interface StackPanelProps extends ContainersProps {
   isVertical?: boolean;
 }
   export const  StackPanelDefaultProps = {
-    isVertical:true,
+    isVertical:{type:Boolean,default:true},
+
     ...controlDefaultProps
   };

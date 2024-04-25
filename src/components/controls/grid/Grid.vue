@@ -9,14 +9,14 @@ export interface GridProps extends /* @vue-ignore */  ContainersProps {
     column:  Array<{width:number,isPixel?:boolean}>;
   }
 
-const props = withDefaults(defineProps<GridProps>(), GridDefaultProps);
+const props = defineProps(GridDefaultProps);
 let prevRow: GridProps["row"] | undefined = undefined;
 let prevColumn: GridProps["column"] | undefined = undefined;
-const { node } = useGrid<GridProps>(props);
+const { node } = useGrid<GridProps>(props as unknown as GridProps);
 watch(
   props,
   (newValue, oldVale) => {
-    compareAndset<typeof node, GridProps>(node, newValue, oldVale);
+    compareAndset<typeof node, GridProps>(node, newValue as unknown as GridProps, oldVale as unknown  as GridProps);
   },
   { immediate: true }
 );

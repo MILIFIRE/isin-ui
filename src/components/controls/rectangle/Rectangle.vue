@@ -8,15 +8,13 @@ export interface RectangleProps extends /* @vue-ignore */ ContainersProps {
     thickness?: number;
     cornerRadius?: number;
   }
-const props = withDefaults(
-  defineProps<RectangleProps>(),
-  RectangleDefaultProps
-);
-const { node } = useRectangle<RectangleProps>(props);
+const props = 
+  defineProps(RectangleDefaultProps);
+const { node } = useRectangle<RectangleProps>(props as RectangleProps);
 watch(
   props,
   (newValue, oldVale) => {
-    compareAndset<typeof node, RectangleProps>(node, newValue, oldVale);
+    compareAndset<typeof node, RectangleProps>(node, newValue as RectangleProps, oldVale as RectangleProps);
   },
   { immediate: true }
 );

@@ -1,6 +1,7 @@
 import { TextWrapping } from "@babylonjs/gui";
 import { ControlProps } from "./control";
 import {  RectangleDefaultProps } from "./rectangle";
+import { ComponentObjectPropsOptions } from "vue";
 
 export interface TextBlockProps extends ControlProps {
   resizeToFit?: boolean;
@@ -15,9 +16,17 @@ export interface TextBlockProps extends ControlProps {
   outlineColor?: string;
   wordDivider?: string;
 }
-export const TextBlockDefaultProps = {
-  resizeToFit: false,
-  lineThrough: false,
-  underline: false,
+export const TextBlockDefaultProps:ComponentObjectPropsOptions = {
+  textWrapping: { type: [Object as () => typeof TextWrapping , Boolean] },
+  text: String,
+  textHorizontalAlignment: Number,
+  textVerticalAlignment: Number,
+  lineSpacing: { type: [String, Number] },
+  outlineWidth: Number,
+  outlineColor: String,
+  wordDivider: String,
+  resizeToFit: { type: Boolean, default: false },
+  lineThrough: { type: Boolean, default: false },
+  underline: { type: Boolean, default: false },
   ...RectangleDefaultProps,
 };

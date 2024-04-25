@@ -12,6 +12,22 @@ export interface ButtonProps extends RectangleProps {
   delegatePickingToChildren?: boolean;
 }
 export const ButtonDefaultProps = {
-  delegatePickingToChildren: false,
+  pointerEnterAnimation: {
+    type: Function as unknown as () => () => void,
+    required: false,
+  },
+  pointerOutAnimation: {
+    type: Function as unknown as () => () => void,
+    required: false,
+  },
+  pointerDownAnimation: {
+    type: Function as unknown as () => () => void,
+    required: false,
+  },
+  pointerUpAnimation: {
+    type: Function as unknown as () => () => void,
+    required: false,
+  },
+  delegatePickingToChildren: { type: Boolean, default: false, required: false, },
   ...RectangleDefaultProps,
 };

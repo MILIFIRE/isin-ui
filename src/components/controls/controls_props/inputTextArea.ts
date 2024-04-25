@@ -8,6 +8,9 @@ export interface InputTextAreaProps extends InputTextProps {
     maxHeight?: string | number;
 }
 export const InputTextAreaDefaultProps = {
-  autoStretchHeight: false,
+  outlineWidth: Number,
+  outlineColor:String,
+  maxHeight:{type:[String ,Number]},
+  autoStretchHeight: {type:Boolean,default:false},
   ...InputTextDefaultProps,
 };

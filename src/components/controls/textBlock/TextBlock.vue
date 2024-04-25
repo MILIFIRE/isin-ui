@@ -19,10 +19,7 @@ export interface TextBlockProps extends /* @vue-ignore */ ControlProps {
   outlineColor?: string;
   wordDivider?: string;
 }
-const props = withDefaults(
-  defineProps<TextBlockProps>(),
-    TextBlockDefaultProps
-);
+const props =defineProps(TextBlockDefaultProps);
 const { node } = useTextBlock<TextBlockProps>(props);
 watch(
   props,

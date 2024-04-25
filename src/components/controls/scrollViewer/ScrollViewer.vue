@@ -28,18 +28,15 @@ export interface ScrollViewerProps extends /* @vue-ignore */ RectangleProps {
   verticalBarImage?: Image;
   isImageBased?:boolean;
 }
-const props = withDefaults(
-  defineProps<ScrollViewerProps>(),
-    ScrollViewerDefaultProps
-);
-const { node } = useRectangle<ScrollViewerProps>(props);
+const props =defineProps(ScrollViewerDefaultProps);
+const { node } = useRectangle<ScrollViewerProps>(props as ScrollViewerProps);
 watch(
   props,
   (newValue, oldVale) => {
     compareAndset<typeof node, ScrollViewerProps>(
      node,
-      newValue,
-      oldVale
+      newValue as ScrollViewerProps,
+      oldVale as ScrollViewerProps
     );
   },
   { immediate: true }

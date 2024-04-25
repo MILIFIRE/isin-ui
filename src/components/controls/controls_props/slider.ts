@@ -8,7 +8,10 @@ export interface SliderProps extends BaseSliderProps {
   isThumbCircle?: boolean;
 }
 export const SliderDefaultProps = {
-  displayValueBar: false,
-    isThumbCircle: false,
+  borderColor:String,
+  background:String,
+  thumbColor:String,
+  displayValueBar: {type:Boolean,default:false},
+    isThumbCircle: {type:Boolean,default:false},
   ...BaseSliderDefaultProps,
 };

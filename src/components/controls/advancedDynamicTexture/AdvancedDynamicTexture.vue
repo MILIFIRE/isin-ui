@@ -3,6 +3,10 @@ import { AdvancedDynamicTexture } from "@babylonjs/gui";
 import useAdvancedDynamicTexture from "./useAdvancedDynamicTexture";
 import { onUnmounted, watch } from "vue";
 import { removeNode, updateNode } from "../../../core";
+
+defineOptions({
+  name: 'AdvancedDynamicTexture',
+})
 const props = defineProps({
   texture: { type: AdvancedDynamicTexture, require: false },
   name: { type: String, require: false, default: "isin-UI" },

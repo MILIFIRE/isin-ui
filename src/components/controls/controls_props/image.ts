@@ -25,8 +25,24 @@ export interface ImageProps extends ControlProps {
   cellId?: number;
 }
 export const ImageDefaultProps = {
-  detectPointerOnOpaqueOnly: false,
-  populateNinePatchSlicesFromImage: false,
-  autoScale: false,
+  referrerPolicy: {type: Object as () =>  ReferrerPolicy},
+  sliceLeft: Number,
+  sliceRight: Number,
+  sliceTop: Number,
+  sliceBottom: Number,
+  sourceLeft: Number,
+  sourceTop: Number,
+  sourceWidth: Number,
+  sourceHeight: Number,
+  imageHeight: Number,
+  stretch: Number,
+  domImage: {type: Object as () =>  IImage},
+  source: String,
+  cellWidth: Number,
+  cellHeight: Number,
+  cellId: Number,
+  detectPointerOnOpaqueOnly: {type:Boolean,default:false},
+  populateNinePatchSlicesFromImage: {type:Boolean,default:false},
+  autoScale: {type:Boolean,default:false},
   ...RectangleDefaultProps,
 };
