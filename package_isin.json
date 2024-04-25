@@ -1,6 +1,6 @@
 {
   "name": "isin-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "isin ui with webgl",
   "module": "index.js",
   "types": "components/index.d.ts",
@@ -14,5 +14,6 @@
     "@babylonjs/serializers": "^7.0.0",
     "@babylonjs/core": "^7.0.0",
     "@babylonjs/gui": "^7.0.0"
-  }
+  },
+  "keywords":["webgl","babylonjsGUI","vue3"]
 }
