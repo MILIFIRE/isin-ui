@@ -1,6 +1,6 @@
 {
   "name": "isin-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "isin ui with webgl",
   "module": "index.js",
   "types": "components/index.d.ts",
@@ -15,5 +15,9 @@
     "@babylonjs/core": "^7.0.0",
     "@babylonjs/gui": "^7.0.0"
   },
-  "keywords":["webgl","babylonjsGUI","vue3"]
+  "keywords":["webgl","babylonjsGUI","vue3"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MILIFIRE/isin-ui.git"
+  }
 }
