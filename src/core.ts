@@ -109,12 +109,14 @@ export const updateNode = (node: nodeType) => {
           control.removeControl(child);
           (node as AdvancedDynamicTexture).addControl(child);
         });
+        nodes.set(id,{parentId,control:node})
       }
       if (parent && control instanceof Container) {
         control._children.forEach((child) => {
           control.removeControl(child);
           (node as AdvancedDynamicTexture).addControl(child);
         });
+        nodes.set(id,{parentId,control:node})
       }
     }
   }
