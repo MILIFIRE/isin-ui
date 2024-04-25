@@ -73,6 +73,8 @@ watch(
 onUnmounted(() => {
   node.dispose();
 });
+defineExpose({inode:node})
+
 </script>
 
 <template>

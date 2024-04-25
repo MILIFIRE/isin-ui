@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { onUnmounted, watch } from "vue";
-import { TextBlockDefaultProps,ControlProps } from "../controls_props";
+import { TextBlockDefaultProps, ControlProps } from "../controls_props";
 import useTextBlock from "./textBlock";
 import { compareAndset } from "../../../util";
 import { TextWrapping } from "@babylonjs/gui";
-
 
 export interface TextBlockProps extends /* @vue-ignore */ ControlProps {
   resizeToFit?: boolean;
@@ -19,22 +18,20 @@ export interface TextBlockProps extends /* @vue-ignore */ ControlProps {
   outlineColor?: string;
   wordDivider?: string;
 }
-const props =defineProps(TextBlockDefaultProps);
-const { node } = useTextBlock<TextBlockProps>(props);
+const props = defineProps(TextBlockDefaultProps);
+const { node } = useTextBlock<TextBlockProps>(props as unknown as TextBlockProps);
 watch(
   props,
   (newValue, oldVale) => {
-    compareAndset<typeof node, TextBlockProps>(
-     node,
-      newValue,
-      oldVale
-    );
+    compareAndset<typeof node, TextBlockProps>(node, newValue as unknown as TextBlockProps, oldVale as unknown as TextBlockProps);
   },
   { immediate: true }
 );
 onUnmounted(() => {
   node.dispose();
 });
+defineExpose({inode:node})
+
 </script>
 
 <template>

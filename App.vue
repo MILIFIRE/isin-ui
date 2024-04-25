@@ -12,7 +12,10 @@ import Grid from "./src/components/controls/grid/Grid.vue";
 const ca = ref(null);
 const textureRef = ref();
 const show = ref(true);
+const showAd = ref(false);
 const num = ref(0);
+const advance = ref(null);
+let scene = undefined;
 setInterval(() => {
   console.log("show.value:", show.value);
   show.value = !show.value;
@@ -20,9 +23,10 @@ setInterval(() => {
 }, 3000);
 onMounted(() => {
   if (ca.value) {
+
     const engine = new BABYLON.Engine(ca.value);
 
-    var scene = new BABYLON.Scene(engine);
+     scene = new BABYLON.Scene(engine);
 
     // This creates and positions a free camera (non-mesh)
     var camera = new BABYLON.FreeCamera(
@@ -57,8 +61,12 @@ onMounted(() => {
     // var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
 
     // GUI
-    var advancedTexture = GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
-    textureRef.value = advancedTexture;
+    // var advancedTexture = GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+    // textureRef.value = advancedTexture;
+    setTimeout(()=>{
+      console.log('instace:',advance.value.inode)
+  },1000);
+  showAd.value = true;
     // var rect1 = new GUI.Rectangle();
     // rect1.adaptWidthToChildren = true;
     // rect1.height = "40px";
@@ -88,8 +96,8 @@ const log = () => {
 <template>
   <div id="app">
     <canvas ref="ca" width="720" height="720"></canvas>
-    <AdvancedDynamicTexture v-if="textureRef" :texture="textureRef">
-      <!-- <ScrollViewer :thickness="7" color="green" :width="1" :height="1">
+    <AdvancedDynamicTexture ref="advance" v-if="showAd" :scene="scene">
+      <ScrollViewer :thickness="7" color="green" :width="1" :height="1">
         <Grid
           width="500px"
           background="black"
@@ -185,7 +193,7 @@ const log = () => {
           >
           </Grid>
         </Grid>
-      </ScrollViewer> -->
+      </ScrollViewer>
     </AdvancedDynamicTexture>
   </div>
 </template>
