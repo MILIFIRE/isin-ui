@@ -7,6 +7,9 @@ export interface CheckboxProps extends ControlProps {
   isChecked?: boolean;
 }
 export const CheckboxDefaultProps = {
-  isChecked: false,
+  thickness: Number,
+  checkSizeRatio: Number,
+  background:String,
+  isChecked: {type:Boolean,default:false},
   ...controlDefaultProps,
 };

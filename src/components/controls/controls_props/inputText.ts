@@ -23,8 +23,24 @@ export interface InputTextProps extends ControlProps {
     width?: string | number;
 }
 export const InputTextDefaultProps = {
-    onFocusSelectAll: false,
-    deadKey: false,
-    addKey: false,
+  maxWidth: { type: [String, Number] },
+  maxWidthInPixels: Number,
+  highligherOpacity: Number,
+  textHighlightColor: String,
+  margin: String,
+  marginInPixels: Number,
+  autoStretchWidth: { type: Boolean, default: false },
+  thickness: Number,
+  focusedBackground: String,
+  focusedColor: String,
+  background: String,
+  placeholderColor: String,
+  placeholderText: String,
+  highlightedText: String,
+  currentKey: String,
+  text: String,
+  onFocusSelectAll: { type: Boolean, default: false },
+  deadKey: { type: Boolean, default: false },
+  addKey: { type: Boolean, default: false },
   ...controlDefaultProps,
 };

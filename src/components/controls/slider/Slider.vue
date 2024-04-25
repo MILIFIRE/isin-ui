@@ -10,15 +10,16 @@ export interface SliderProps extends /* @vue-ignore */ BaseSliderProps {
   thumbColor?: string;
   isThumbCircle?: boolean;
 }
-const props = withDefaults(
-  defineProps<SliderProps>(),
-  SliderDefaultProps
-);
-const { node } = useSlider<SliderProps>(props);
+const props = defineProps(SliderDefaultProps);
+const { node } = useSlider<SliderProps>(props as SliderProps);
 watch(
   props,
   (newValue, oldVale) => {
-    compareAndset<typeof node, SliderProps>(node, newValue, oldVale);
+    compareAndset<typeof node, SliderProps>(
+      node,
+      newValue as SliderProps,
+      oldVale as SliderProps
+    );
   },
   { immediate: true }
 );

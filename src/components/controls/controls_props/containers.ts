@@ -7,6 +7,7 @@ export interface ContainersProps extends ControlProps {
 }
 
 export const ContainersDefaultProps = {
-  adaptWidthToChildren: false,
+  adaptWidthToChildren: {type:Boolean,default:false},
+  background: String,
   ...controlDefaultProps
 };

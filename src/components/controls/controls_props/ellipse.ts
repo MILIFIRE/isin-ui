@@ -3,5 +3,6 @@ export interface EllipseProps extends ContainersProps {
     thickness?: number;
   }
   export const  EllipseDefaultProps = {
+  thickness: Number,
     ...ContainersDefaultProps
   };

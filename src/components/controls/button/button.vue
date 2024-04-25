@@ -14,12 +14,12 @@ import { compareAndset } from "../../../util";
 //   pointerUpAnimation?: () => void;
 //   delegatePickingToChildren?: boolean;
 // }
-const props = withDefaults(defineProps<ButtonProps>(), ButtonDefaultProps);
-const { node } = useButton<ButtonProps>(props);
+const props = defineProps(ButtonDefaultProps);
+const { node } = useButton<ButtonProps>(props as ButtonProps);
 watch(
   props,
-  (newValue, oldVale) => {
-    compareAndset<typeof node, ButtonProps>(node, newValue, oldVale);
+  (newValue , oldVale) => {
+    compareAndset<typeof node, ButtonProps>(node, newValue as ButtonProps, oldVale as ButtonProps);
   },
   { immediate: true }
 );

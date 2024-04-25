@@ -27,18 +27,15 @@ export interface ImageProps extends /* @vue-ignore */  ControlProps {
   cellId?: number;
 }
 
-const props = withDefaults(
-  defineProps<ImageProps>(),
-    ImageDefaultProps
-);
-const { node } = useImage<ImageProps>(props);
+const props =defineProps(ImageDefaultProps);
+const { node } = useImage<ImageProps>(props as unknown as ImageProps);
 watch(
   props,
   (newValue, oldVale) => {
     compareAndset<typeof node, ImageProps>(
      node,
-      newValue,
-      oldVale
+      newValue as unknown as ImageProps,
+      oldVale as unknown as ImageProps
     );
   },
   { immediate: true }
@@ -53,5 +50,3 @@ onUnmounted(() => {
 </template>
 
 <style lang="less"></style>
-../containers./useRectangle
-../props/containers../controls_props

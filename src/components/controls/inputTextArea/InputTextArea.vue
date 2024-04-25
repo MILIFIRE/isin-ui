@@ -11,15 +11,14 @@ export interface InputTextAreaProps extends /* @vue-ignore */ InputTextProps {
     maxHeight?: string | number;
 }
 
-const props = withDefaults(
-  defineProps<InputTextAreaProps>(),
-  InputTextAreaDefaultProps
-);
-const { node } = useInputTextArea<InputTextAreaProps>(props);
+const props = 
+  defineProps(InputTextAreaDefaultProps);
+  
+const { node } = useInputTextArea<InputTextAreaProps>(props as InputTextAreaProps);
 watch(
   props,
   (newValue, oldVale) => {
-    compareAndset<typeof node, InputTextAreaProps>(node, newValue, oldVale);
+    compareAndset<typeof node, InputTextAreaProps>(node, newValue as InputTextAreaProps, oldVale as  InputTextAreaProps);
   },
   { immediate: true }
 );

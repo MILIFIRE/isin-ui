@@ -6,21 +6,19 @@ import { compareAndset } from "../../../util";
 
 export interface RadioButtonProps extends /* @vue-ignore */ ControlProps {
   thickness?: number;
-    group?: string;
-    checkSizeRatio?: number;
-    background?: string;
-    isChecked?: boolean;
+  group?: string;
+  checkSizeRatio?: number;
+  background?: string;
+  isChecked?: boolean;
 }
 
-const props = withDefaults(
-  defineProps<RadioButtonProps>(),
-  RadioButtonDefaultProps
-);
-const { node } = useRadioButton<RadioButtonProps>(props);
+const props = defineProps(RadioButtonDefaultProps);
+
+const { node } = useRadioButton<RadioButtonProps>(props as RadioButtonProps);
 watch(
   props,
   (newValue, oldVale) => {
-    compareAndset<typeof node, RadioButtonProps>(node, newValue, oldVale);
+    compareAndset<typeof node, RadioButtonProps>(node, newValue as RadioButtonProps, oldVale as RadioButtonProps);
   },
   { immediate: true }
 );
@@ -33,4 +31,5 @@ onUnmounted(() => {
   <slot></slot>
 </template>
 
-<style lang="less"></style>../controls_props
+<style lang="less"></style>
+../controls_props

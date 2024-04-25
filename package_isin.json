@@ -1,5 +1,5 @@
 {
-  "name": "isin-ui",
+  "name": "isinui",
   "version": "1.0.0",
   "description": "isin ui with webgl",
   "module": "index.js",

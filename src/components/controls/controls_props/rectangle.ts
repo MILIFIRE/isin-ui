@@ -4,5 +4,7 @@ export interface RectangleProps extends ContainersProps {
     cornerRadius?: number;
   }
   export const  RectangleDefaultProps = {
+    thickness: Number,
+    cornerRadius: Number,
     ...ContainersDefaultProps
   };

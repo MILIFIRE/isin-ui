@@ -6,18 +6,16 @@ import { compareAndset } from "../../../util";
 export interface StackPanelProps extends /* @vue-ignore */ ContainersProps {
   isVertical?: boolean;
 }
-const props = withDefaults(
-  defineProps<StackPanelProps>(),
-  StackPanelDefaultProps
-);
-const { node } = useStackPanel(props);
+const props = 
+  defineProps(StackPanelDefaultProps);
+const { node } = useStackPanel<StackPanelProps>(props as StackPanelProps);
 watch(
   props,
   (newValue, oldVale) => {
     compareAndset<typeof node, StackPanelProps>(
      node,
-      newValue,
-      oldVale
+      newValue as StackPanelProps,
+      oldVale as StackPanelProps
     );
   },
   { immediate: true }

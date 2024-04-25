@@ -75,13 +75,124 @@ export interface ControlProps {
   columnIndex?: number;
 }
 export const controlDefaultProps = {
-  clipChildren: true,
-  clipContent: true,
-  descendantsOnlyPadding: false,
-  fixedRatioMasterIsWidth: true,
-  isEnabled: true,
-  isHighlighted: false,
-  isReadOnly: false,
-  isVisible: true,
-  notRenderable: false,
+  accessibilityTag: {
+    type: Object as () => IAccessibilityTag,
+    require: false,
+  },
+  name: String,
+  alpha: Number,
+  clipChildren: { type: Boolean, default: true, require: false },
+  clipContent: { type: Boolean, default: true, require: false },
+  color: String,
+  descendantsOnlyPadding: { type: Boolean, default: false, require: false },
+  disabledColor: String,
+  disabledColorItem: String,
+  fixedRatio: Number,
+  fixedRatioMasterIsWidth: { type: Boolean, default: true, require: false },
+  fontFamily: String,
+  fontOffset: {
+    type: Object,
+    default: () => ({
+      ascent: 0,
+      descent: 0,
+      height: 0,
+    }),
+    validator: function (value:any) {
+      return (
+        typeof value.ascent === "number" &&
+        typeof value.descent === "number" &&
+        typeof value.height === "number"
+      );
+    },
+  },
+  fontSize: { type: [String, Number] },
+  fontSizeInPixels: Number,
+  fontStyle: String,
+  fontWeight: String,
+  gradient: {  type: Object as () => typeof BaseGradient,},
+  height: { type: [String, Number] },
+  heightInPixels: Number,
+  highlightColor: String,
+  highlightLineWidth: Number,
+  horizontalAlignment: Number,
+  isEnabled: { type: Boolean, default: true, require: false },
+  isHighlighted: { type: Boolean, default: false, require: false },
+  isReadOnly: { type: Boolean, default: false, require: false },
+  isVisible: { type: Boolean, default: true, require: false },
+  left: { type: [String, Number], require: false },
+  linkOffsetX: { type: [String, Number], require: false },
+  linkOffsetXInPixels: Number,
+  linkOffsetY: { type: [String, Number], require: false },
+  linkOffsetYInPixels: Number,
+  notRenderable: { type: Boolean, default: false, require: false },
+  paddingBottom: { type: [String, Number], require: false },
+  paddingBottomInPixels: Number,
+  paddingLeft: { type: [String, Number], require: false },
+  paddingLeftInPixels: Number,
+  paddingRight: { type: [String, Number], require: false },
+  paddingRightInPixels: Number,
+  paddingTop: { type: [String, Number], require: false },
+  paddingTopInPixels: Number,
+  rotation: Number,
+  scaleX: Number,
+  scaleY: Number,
+  shadowBlur: Number,
+  shadowColor: String,
+  shadowOffsetX: Number,
+  shadowOffsetY: Number,
+  style: Style,
+  top: { type: [String, Number], require: false },
+  transformCenterX: Number,
+  transformCenterY: Number,
+  verticalAlignment: Number,
+  width: { type: [String, Number], require: false },
+  widthInPixels: Number,
+  zIndex: Number,
+  onPointerClickObservable: {
+    type: Function as unknown as () => (value: Vector2WithInfo) => void,
+    required: false,
+  },
+  onPointerDownObservable: {
+    type: Function as unknown as () => (value: Vector2WithInfo) => void,
+    required: false,
+  },
+  onPointerEnterObservable: {
+    type: Function as unknown as () => (value: Control) => void,
+    required: false,
+  },
+  onPointerMoveObservable: {
+    type: Function as unknown as () => (value: Vector2) => void,
+    required: false,
+  },
+  onPointerOutObservable: {
+    type: Function as unknown as () => (value: Control) => void,
+    required: false,
+  },
+  onDirtyObservable: {
+    type: Function as unknown as () => (value: Control) => void,
+    required: false,
+  },
+  onBeforeDrawObservable: {
+    type: Function as unknown as () => (value: Control) => void,
+    required: false,
+  },
+  onAfterDrawObservable: {
+    type: Function as unknown as () => (value: Control) => void,
+    required: false,
+  },
+  onPointerUpObservable: {
+    type: Function as unknown as () => (value: Vector2WithInfo) => void,
+    required: false,
+  },
+  onWheelObservable: {
+    type: Function as unknown as () => (value: Vector2) => void,
+    required: false,
+  },
+  onIsVisibleChangedObservable: {
+    type: Function as unknown as () => (value: Boolean) => void,
+    required: false,
+  },
+  // 非原生属性
+  rowIndex: Number,
+  columnIndex: Number,
 };

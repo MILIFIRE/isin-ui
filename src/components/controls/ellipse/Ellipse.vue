@@ -7,18 +7,15 @@ import { compareAndset } from "../../../util";
 export interface EllipseProps extends /* @vue-ignore */ ContainersProps {
     thickness?: number;
   }
-const props = withDefaults(
-  defineProps<EllipseProps>(),
-    EllipseDefaultProps
-);
-const { node } = useEllipse<EllipseProps>(props);
+const props =defineProps(EllipseDefaultProps);
+const { node } = useEllipse<EllipseProps>(props as EllipseProps);
 watch(
   props,
   (newValue, oldVale) => {
     compareAndset<typeof node, EllipseProps>(
      node,
-      newValue,
-      oldVale
+      newValue as EllipseProps,
+      oldVale as EllipseProps
     );
   },
   { immediate: true }
