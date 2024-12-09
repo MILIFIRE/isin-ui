@@ -30,4 +30,3 @@ defineExpose({inode:node})
 </template>
 
 <style lang="less"></style>
-../controls_props

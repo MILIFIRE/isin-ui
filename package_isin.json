@@ -1,6 +1,6 @@
 {
   "name": "isin-ui",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "isin ui with webgl",
   "module": "index.js",
   "types": "components/index.d.ts",

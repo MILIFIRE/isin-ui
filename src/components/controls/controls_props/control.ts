@@ -25,7 +25,7 @@ export interface ControlProps {
   heightInPixels?: number;
   highlightColor?: string;
   highlightLineWidth?: number;
-  horizontalAlignment?: number;
+  horizontalAlignment?: number|string;
   isEnabled?: boolean;
   isHighlighted?: boolean;
   isReadOnly?: boolean;
@@ -71,8 +71,8 @@ export interface ControlProps {
   onWheelObservable?: (value: Vector2) => void;
   onIsVisibleChangedObservable?: (value: boolean) => void;
   // 非原生属性
-  rowIndex?: number;
-  columnIndex?: number;
+  rowIndex?: number|string;
+  columnIndex?: number|string;
 }
 export const controlDefaultProps = {
   accessibilityTag: {
@@ -114,7 +114,7 @@ export const controlDefaultProps = {
   heightInPixels: Number,
   highlightColor: String,
   highlightLineWidth: Number,
-  horizontalAlignment: Number,
+  horizontalAlignment: { type: [String, Number] },
   isEnabled: { type: Boolean, default: true, require: false },
   isHighlighted: { type: Boolean, default: false, require: false },
   isReadOnly: { type: Boolean, default: false, require: false },
@@ -193,6 +193,6 @@ export const controlDefaultProps = {
     required: false,
   },
   // 非原生属性
-  rowIndex: Number,
-  columnIndex: Number,
+  rowIndex: { type: [String, Number] },
+  columnIndex:{ type: [String, Number] },
 };

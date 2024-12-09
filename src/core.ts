@@ -44,6 +44,7 @@ export const addNode = (node: nodeType) => {
       const { control } = parent;
       if (control instanceof Grid && instance) {
         const alisType: ControlProps = instance.props;
+        
         const rowIndex = alisType.rowIndex
           ? alisType.rowIndex
           : Number.MAX_VALUE;
@@ -51,7 +52,7 @@ export const addNode = (node: nodeType) => {
           ? alisType.columnIndex
           : Number.MAX_SAFE_INTEGER;
 
-        control.addControl(node, rowIndex, columnIndex);
+        control.addControl(node, Number(rowIndex), Number(columnIndex));
       } else {
         const controlAlis = control as Container;
         if (controlAlis && controlAlis.addControl) {
