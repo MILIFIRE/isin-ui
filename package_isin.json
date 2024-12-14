@@ -1,19 +1,17 @@
 {
   "name": "isin-ui",
-  "version": "1.0.3",
+  "version": "1.0.8",
   "description": "isin ui with webgl",
   "module": "index.js",
   "types": "components/index.d.ts",
   "author": "shuaisong",
   "license": "MIT",
   "peerDependencies": {
-    "vue": "^3.0.0"
-  },
-  "dependencies": {
-    "@babylonjs/materials": "^7.0.0",
-    "@babylonjs/serializers": "^7.0.0",
-    "@babylonjs/core": "^7.0.0",
-    "@babylonjs/gui": "^7.0.0"
+    "vue": "^3.0.0",
+    "@babylonjs/materials": "^5.33.2",
+    "@babylonjs/serializers": "^5.33.2",
+    "@babylonjs/core": "^5.33.2",
+    "@babylonjs/gui": "^5.33.2"
   },
   "keywords":["webgl","babylonjsGUI","vue3"],
   "repository": {

@@ -9,12 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@babylonjs/core": "^7.0.0",
-    "@babylonjs/gui": "^7.0.0",
-    "@babylonjs/materials": "^7.0.0",
-    "@babylonjs/serializers": "^7.0.0",
-    "ts-morph": "^22.0.0",
-    "vue": "^3.4.21"
+
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
@@ -31,6 +26,12 @@
     "vite": "^5.2.0",
     "vite-node": "^1.5.0",
     "vite-plugin-dts": "^3.9.0",
-    "vue-tsc": "^2.0.6"
+    "vue-tsc": "^2.0.6",
+    "@babylonjs/core": "^5.33.2",
+    "@babylonjs/gui": "^5.33.2",
+    "@babylonjs/materials": "^5.33.2",
+    "@babylonjs/serializers": "^5.33.2",
+    "ts-morph": "^22.0.0",
+    "vue": "^3.4.21"
   }
 }

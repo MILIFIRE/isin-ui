@@ -35,8 +35,11 @@ export const addNode = (node: nodeType) => {
     }
     parentId = parentInstance.uid;
   }
-  const parent = nodes.get(parentId);
-
+  let parent = nodes.get(parentId);
+  // 遇到层级打断重新获取父节点
+  if (!parent && instance && instance.parent && instance.parent.parent && node.getClassName() !== "AdvancedDynamicTexture") {
+    parent = nodes.get(instance.parent.parent.uid);
+  }
   if (parent) {
     if (node instanceof AdvancedDynamicTexture) {
       console.warn("AdvancedDynamicTexture is not be sub-components");
@@ -44,7 +47,7 @@ export const addNode = (node: nodeType) => {
       const { control } = parent;
       if (control instanceof Grid && instance) {
         const alisType: ControlProps = instance.props;
-        
+
         const rowIndex = alisType.rowIndex
           ? alisType.rowIndex
           : Number.MAX_VALUE;
@@ -110,14 +113,14 @@ export const updateNode = (node: nodeType) => {
           control.removeControl(child);
           (node as AdvancedDynamicTexture).addControl(child);
         });
-        nodes.set(id,{parentId,control:node})
+        nodes.set(id, { parentId, control: node })
       }
       if (parent && control instanceof Container) {
         control._children.forEach((child) => {
           control.removeControl(child);
           (node as AdvancedDynamicTexture).addControl(child);
         });
-        nodes.set(id,{parentId,control:node})
+        nodes.set(id, { parentId, control: node })
       }
     }
   }
