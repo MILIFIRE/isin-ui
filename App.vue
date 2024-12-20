@@ -2,7 +2,12 @@
 import * as BABYLON from "@babylonjs/core";
 import * as GUI from "@babylonjs/gui";
 import {AdvancedDynamicTexture,Rectangle} from "./src/components";
-import QuestionList from "./questionList.vue";
+import QuestionList from "./page/questionList.vue";
+import QuestionInfo from "./page/questioninfo.vue";
+import StarQuestion from "./page/starQuestion.vue";
+import AnswerQuesions from "./page/answerQuesions.vue";
+import QuestionResult from "./page/questionResult.vue";
+import DialogQuestion from "./page/dialogQuestion.vue";
 import { onMounted, ref } from "vue";
 
 const ca = ref(null);
@@ -65,6 +70,7 @@ onMounted(() => {
 
     // Move the sphere upward 1/2 its height
     sphere.position.y = 1;
+    sphere.isVisible=false
 
     // Our built-in 'ground' shape. Params: name, width, depth, subdivs, scene
     // var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
@@ -140,6 +146,11 @@ const rec = ref(null);
 setTimeout(() => {
   console.log("rec:", rec.value);
 }, 1000);
+
+const leftBtn = ()=>{
+  console.log("leftBtn");}
+  const rightBtn = ()=>{
+    console.log("rightBtn");}
 </script>
 
 <template>
@@ -151,14 +162,19 @@ setTimeout(() => {
       :scene="scene"
       :name="name"
     >
-    <Rectangle
+    <!-- <Rectangle
       :cornerRadius="20"
       color="#000000"
       background="#313131"
       width="690px"
       height="500px"
-    />
-      <QuestionList />
+    /> -->
+      <!-- <QuestionList /> -->
+      <!-- <QuestionInfo/> -->
+      <!-- <StarQuestion/> -->
+      <!-- <AnswerQuesions/> -->
+      <!-- <QuestionResult/> -->
+      <DialogQuestion :params="{leftText:'AAAA',rightText:'bbbbb',text:'要中途结束本次答题互动吗？'}" @left="leftBtn" @right="rightBtn" />
 
     </AdvancedDynamicTexture>
   </div>
